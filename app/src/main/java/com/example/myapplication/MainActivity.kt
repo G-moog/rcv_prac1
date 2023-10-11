@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    val folderNameList = mutableListOf<String>()
+    val imageUriList = mutableListOf<Any>()
+
     val projection = arrayOf(
         MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
         MediaStore.Images.Media._ID
@@ -46,9 +49,15 @@ class MainActivity : AppCompatActivity() {
                 val folderName = getString(folderNameColumn)
                 // 이미지 Uri
                 val imageUri = Uri.withAppendedPath(externalUri, "" + getLong(columnIndexID))
+
+                folderNameList.add(folderName)
+                imageUriList.add(folderName)
+
             }
 
             close()
+
+
 
         }
     }
@@ -64,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         // lateinit
         // fooAdapter = FooAdapter {}
         binding.recyclerView.adapter = fooAdapter
-        fooAdapter.addItems(Foo.createSamples(0))
+        fooAdapter.addItems(Foo.createSamples(dogCatImgList))
 
         val list = listOf("킹냥이","댕댕이")
 

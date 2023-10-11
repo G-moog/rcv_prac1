@@ -19,14 +19,16 @@ package com.example.myapplication
 
 
 data class Foo(
-    val imgSrc: String
+    val folderName: String,
+    val imageUrl: Any
+
 ) {
 
     companion object {
-        fun createSamples(page : Int) = mutableListOf<Foo>().apply {
-            for (i in 1 until 10) {
-                val number = page * 10
-                add(Foo("dogImg ${number + i}"))
+        fun createSamples(folderNameList: MutableList<String>, imageUriList: MutableList<Any>) = mutableListOf<Foo>().apply {
+            for (i in folderNameList) {
+
+                add(Foo(folderNameList[i],imageUriList[i]))
             }
         }
     }
