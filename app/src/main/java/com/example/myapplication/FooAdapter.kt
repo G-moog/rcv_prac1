@@ -18,6 +18,8 @@ class FooAdapter(
         notifyItemRangeInserted(items.size, newItems.size)
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflatedView = LayoutInflater.from(parent.context)
         val binding = ItemFooBinding.inflate(inflatedView, parent, false)
@@ -36,8 +38,9 @@ class FooAdapter(
 
         fun bind(item : Foo) {
             binding.apply {
-                tvName.text = item.name
-                tvPhone.text = item.phone
+                /*tvName.text = item.name
+                tvPhone.text = item.phone*/
+
 
                 itemView.setOnClickListener {
 

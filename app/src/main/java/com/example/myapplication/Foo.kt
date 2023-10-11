@@ -1,6 +1,6 @@
 package com.example.myapplication
 
-data class Foo(
+/*data class Foo(
     val id: Int,
     val name: String,
     val phone: String,
@@ -11,6 +11,22 @@ data class Foo(
             for (i in 1 until 10) {
                 val number = page * 10
                 add(Foo(number +i, "이름 ${number + i}", "01000000000"))
+            }
+        }
+    }
+}*/
+
+
+
+data class Foo(
+    val imgSrc: String
+) {
+
+    companion object {
+        fun createSamples(page : Int) = mutableListOf<Foo>().apply {
+            for (i in 1 until 10) {
+                val number = page * 10
+                add(Foo("dogImg ${number + i}"))
             }
         }
     }
